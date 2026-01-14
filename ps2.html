@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayStation 2 | VIDEOGAMES SCZ</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- DEFINICIÓN DE COLORES --- */
+        :root {
+            --accent-green: #7FFF00; /* Verde Neón */
+            --dark-green: #5d9e3b;   /* Verde Oscuro */
+            --menu-bg: #ffffff;      
+            --menu-text: #333333;    
+            --menu-border: #f0f0f0;  
+            --background-color: #f4f4f4;
+        }
+
+        /* --- ESTILO GENERAL --- */
+        body { 
+            font-family: Arial, Helvetica, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--background-color); 
+            color: var(--menu-text); 
+            margin-left: 260px; /* Espacio para el menú */
+            transition: margin-left 0.3s ease;
+        }
+
+        /* --- MENÚ LATERAL FIJO --- */
+        #menu-lateral {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background-color: var(--menu-bg);
+            color: var(--menu-text);
+            border-right: 1px solid #ddd;
+            overflow-y: auto;
+            z-index: 1000;
+            text-align: left;
+            box-shadow: 2px 0 15px rgba(0,0,0,0.05);
+        }
+
+        .menu-titulo {
+            background-color: #ffffff;
+            padding: 30px 20px 20px 20px;
+            text-align: center;
+            font-family: 'Bangers', cursive;
+            font-size: 1.8em;
+            color: var(--dark-green);
+            letter-spacing: 1px;
+            border-bottom: 3px solid var(--accent-green);
+            line-height: 1.1;
+        }
+
+        #menu-lateral ul { list-style: none; padding: 0; margin: 0; }
+        #menu-lateral li { border-bottom: 1px solid var(--menu-border); }
+
+        #menu-lateral a {
+            display: block;
+            padding: 18px 25px;
+            color: #555;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.2s ease;
+            font-weight: 600;
+        }
+
+        #menu-lateral a:hover {
+            background-color: #f9f9f9;
+            color: var(--dark-green);
+            padding-left: 30px;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        /* Highlight para indicar que estamos en PS4 */
+        #menu-lateral a.activo {
+            background-color: #f0f0f0;
+            color: var(--dark-green);
+            border-left: 4px solid var(--accent-green);
+        }
+
+        /* --- BANNER HEADER --- */
+        #banner-header {
+            width: 100%;
+            height: 250px; 
+            background-color: var(--dark-green); 
+            /* Asegúrate de tener la imagen banner.jpg en la carpeta */
+            background-image: url('banner.jpg'); 
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .container { 
+            width: 90%; 
+            max-width: 1200px; /* Un poco más ancho para que quepan bien los productos */
+            margin: 30px auto; 
+            padding: 40px; 
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); 
+            text-align: left;
+        }
+        
+        h2 { 
+            color: var(--dark-green); 
+            border-bottom: 2px solid #eee; 
+            padding-bottom: 15px; 
+            margin-top: 20px; 
+            font-size: 2.5em; 
+            font-family: 'Bangers', cursive;
+            letter-spacing: 1px;
+        }
+
+        /* --- ESTILOS DE LA GALERÍA DE PRODUCTOS (GRID) --- */
+        .galeria-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .producto-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-bottom: 6px solid var(--accent-green); /* Tu toque de marca */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-bottom-color: var(--dark-green);
+        }
+
+        .producto-img-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+        }
+
+        .producto-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .producto-titulo {
+            font-family: 'Bangers', cursive;
+            font-size: 1.5em;
+            color: #333;
+            margin: 10px 0 5px 0;
+            line-height: 1.1;
+        }
+
+        .producto-desc {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            flex-grow: 1; /* Esto hace que las tarjetas se alineen bien aunque haya poco texto */
+        }
+
+        .producto-precio {
+            font-family: 'Bangers', cursive;
+            font-size: 2.2em;
+            color: var(--dark-green);
+            margin-top: auto;
+            display: block;
+        }
+
+        footer { text-align: center; padding: 30px 0; background-color: #333; color: #888; margin-top: 60px; }
+
+        /* --- RESPONSIVE (MÓVIL) --- */
+        @media (max-width: 900px) {
+            body { margin-left: 0; }
+            #menu-lateral {
+                position: relative; 
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 4px solid var(--accent-green);
+            }
+            .menu-titulo { font-size: 2em; padding: 15px; }
+            #menu-lateral ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                background-color: #f9f9f9;
+            }
+            #menu-lateral a { padding: 15px 20px; text-align: center; border: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="menu-lateral">
+        <div class="menu-titulo">Todas las<br>categorías</div>
+        
+        <ul>
+		    <li><a href="index.html">🏠 Inicio</a></li>
+			
+			<li><a href="ps4.html">PlayStation 4</a></li>
+			<li><a href="ps3.html">PlayStation 3</a></li>
+			
+            <li><a href="ps2.html" class="activo">PlayStation 2</a></li>
+			
+            <li><a href="xbox360.html">XBOX 360</a></li>
+			<li><a href="xbox.html">XBOX</a></li>
+        </ul>
+    </nav>
+
+    <div id="banner-header"></div>
+
+    <div class="container">
+
+        <section id="ps4-productos">
+            <h2>🎮 PlayStation 2</h2>
+            <p style="color: #666; margin-bottom: 30px;">Selección de los mejores servicios de reparación, modificación y juegos digitales para tu consola.</p>
+
+            <div class="galeria-productos">
+
+                <div class="producto-card">
+                    <div class="producto-img-container">
+                        <img src="ps2reparacion.png" alt="Mantenimiento PS2" class="producto-img">
+                    </div>
+                    <h3 class="producto-titulo">Mantenimiento PS2</h3>
+                    <p class="producto-desc">Limpieza profunda de ventilador y componentes internos. Elimina sobrecalentamiento y ruido.</p>
+                    <span class="producto-precio">30€</span>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-img-container">
+                        <img src="fmcb.png" alt="FMCB" class="producto-img">
+                    </div>
+                    <h3 class="producto-titulo">FMCB</h3>
+                    <p class="producto-desc">Desbloqueo de sistema mediante FMCB (Sólo modelos compatibles.</p>
+                    <span class="producto-precio">20€</span>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-img-container">
+                        <img src="hddps2.png" alt="HDD PS2" class="producto-img">
+                    </div>
+                    <h3 class="producto-titulo">Instalación HDD 500GB</h3>
+                    <p class="producto-desc">Instalación HDD 500GB externo (Incluye contenido).</p>
+                    <span class="producto-precio">55€</span>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 VIDEOGAMES SCZ | Expertos en Hardware y Scene.</p>
+    </footer>
+
+</body>
+</html>

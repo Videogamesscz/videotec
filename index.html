@@ -10,10 +10,12 @@
     <style>
         /* --- DEFINICIÓN DE COLORES --- */
         :root {
-            --accent-green: #7FFF00; /* Verde Neón / Lima brillante */
-            --dark-green: #5d9e3b; /* Verde oscuro */
-            --text-color: #333;
-            --background-color: #ffffff;
+            --accent-green: #7FFF00; /* Verde Neón */
+            --dark-green: #5d9e3b;   /* Verde Oscuro */
+            --menu-bg: #ffffff;      /* AHORA ES BLANCO */
+            --menu-text: #333333;    /* Texto oscuro para fondo blanco */
+            --menu-border: #f0f0f0;  /* Líneas separadoras sutiles */
+            --background-color: #f4f4f4;
         }
 
         /* --- ESTILO GENERAL --- */
@@ -22,8 +24,66 @@
             margin: 0; 
             padding: 0; 
             background-color: var(--background-color); 
-            color: var(--text-color); 
+            color: var(--menu-text); 
+            margin-left: 260px; /* Espacio para el menú */
+            transition: margin-left 0.3s ease;
+        }
+
+        /* --- MENÚ LATERAL FIJO (SIDEBAR) BLANCO --- */
+        #menu-lateral {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background-color: var(--menu-bg);
+            color: var(--menu-text);
+            border-right: 1px solid #ddd; /* Borde sutil a la derecha */
+            overflow-y: auto;
+            z-index: 1000;
+            text-align: left;
+            box-shadow: 2px 0 15px rgba(0,0,0,0.05); /* Sombra muy suave */
+        }
+
+        /* Estilo del título "Todas las categorías" */
+        .menu-titulo {
+            background-color: #ffffff;
+            padding: 30px 20px 20px 20px; /* Un poco más de aire arriba */
             text-align: center;
+            font-family: 'Bangers', cursive;
+            font-size: 1.8em;
+            color: var(--dark-green); /* Color verde corporativo */
+            letter-spacing: 1px;
+            border-bottom: 3px solid var(--accent-green); /* Línea decorativa debajo */
+            line-height: 1.1;
+        }
+
+        #menu-lateral ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #menu-lateral li {
+            border-bottom: 1px solid var(--menu-border); /* Líneas finas grises */
+        }
+
+        #menu-lateral a {
+            display: block;
+            padding: 18px 25px;
+            color: #555; /* Gris oscuro elegante */
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.2s ease;
+            font-weight: 600; /* Un poco más gordita la letra */
+        }
+
+        /* Efecto al pasar el ratón (Hover) */
+        #menu-lateral a:hover {
+            background-color: #f9f9f9; /* Fondo gris muy clarito */
+            color: var(--dark-green);  /* Texto se pone verde */
+            padding-left: 30px;        /* Pequeño desplazamiento */
+            border-left: 4px solid var(--accent-green); /* Borde verde a la izquierda */
         }
 
         /* --- BANNER HEADER --- */
@@ -34,18 +94,7 @@
             background-image: url('banner.jpg'); 
             background-size: cover;
             background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        #banner-header h1 {
-            color: white;
-            background-color: rgba(0, 0, 0, 0.0);
-            padding: 10px 20px;
-            border-radius: 4px;
-            font-size: 3em;
-            font-family: 'Bangers', cursive; 
         }
 
         /* --- CONTENEDOR PRINCIPAL --- */
@@ -53,64 +102,58 @@
             width: 90%; 
             max-width: 1000px;
             margin: 30px auto; 
-            padding: 30px; 
+            padding: 40px; 
             background-color: white;
             border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05); 
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); 
             text-align: left;
         }
         
-        /* --- TÍTULOS DE SECCIÓN --- */
         h2 { 
             color: var(--dark-green); 
-            border-bottom: 2px solid #ddd; 
-            padding-bottom: 12px; 
-            margin-top: 50px; /* Un poco más de espacio entre secciones */
+            border-bottom: 2px solid #eee; 
+            padding-bottom: 15px; 
+            margin-top: 50px; 
             font-size: 2.5em; 
-            font-weight: normal; 
             font-family: 'Bangers', cursive;
             letter-spacing: 1px;
+            scroll-margin-top: 20px;
         }
         
-        /* --- MÓDULOS DE SERVICIO Y VIDEO --- */
         .modulo { 
-            margin-bottom: 35px; 
-            padding: 20px; 
+            margin-bottom: 40px; 
+            padding: 25px; 
             border: 1px solid #eee; 
-            background-color: #fcfcfc; 
-            border-radius: 8px;
-            border-left: 5px solid var(--accent-green); /* Borde decorativo lateral */
+            background-color: #fafafa; 
+            border-radius: 10px;
+            border-left: 6px solid var(--accent-green); 
         }
         .modulo h3 {
-            color: var(--text-color);
+            color: #222;
             font-size: 1.6em;
             margin-top: 0;
-            margin-bottom: 15px;
             font-family: 'Bangers', cursive;
-            letter-spacing: 0.5px;
         }
 
-        /* --- ESTILO DE BOTÓN --- */
         .btn-profesional {
             display: inline-block;
-            padding: 12px 28px;
+            padding: 15px 35px;
             background-color: var(--accent-green); 
-            color: var(--text-color); 
+            color: #222; 
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             text-decoration: none;
-            font-weight: normal;
             font-size: 1.5em; 
-            transition: background-color 0.3s;
+            transition: all 0.3s;
             font-family: 'Bangers', cursive;
-            box-shadow: 3px 3px 0 #333; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
         }
         .btn-profesional:hover {
-            background-color: #90EE90; 
-            box-shadow: 1px 1px 0 #333;
+            background-color: #6ee600; 
+            transform: translateY(-2px); /* Efecto de elevación */
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
         }
 
-        /* Estilo para videos incrustados */
         .embed-container { 
             position: relative; 
             padding-bottom: 56.25%; 
@@ -118,28 +161,62 @@
             overflow: hidden; 
             max-width: 100%; 
             background: #000; 
-            margin-top: 20px; 
-            border-radius: 6px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 25px; 
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         .embed-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        footer { text-align: center; padding: 20px 0; background-color: #333; color: #ccc; margin-top: 60px; }
-        footer a { color: var(--accent-green); text-decoration: none; }
-        ul { list-style: circle; padding-left: 20px; line-height: 1.6; }
-        ul li { margin-bottom: 8px; }
+        footer { text-align: center; padding: 30px 0; background-color: #333; color: #888; margin-top: 60px; }
+
+        /* --- RESPONSIVE (MÓVIL) --- */
+        @media (max-width: 900px) {
+            body { margin-left: 0; }
+            #menu-lateral {
+                position: relative; 
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 4px solid var(--accent-green);
+            }
+            .menu-titulo {
+                font-size: 2em; /* Título más grande en móvil */
+                padding: 15px;
+            }
+            #menu-lateral ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                background-color: #f9f9f9;
+            }
+            #menu-lateral a {
+                padding: 15px 20px;
+                text-align: center;
+                border: none;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div id="banner-header">
-        <h1></h1> 
-    </div>
+    <nav id="menu-lateral">
+        <div class="menu-titulo">Todas las<br>categorías</div>
+        
+        <ul>
+            <li><a href="ps4.html">PlayStation 4</a></li>
+            <li><a href="ps3.html">PlayStation 3</a></li>
+            <li><a href="ps2.html">PlayStation 2</a></li>
+            <li><a href="xbox360.html">XBOX 360</a></li>
+			<li><a href="xbox.html">XBOX</a></li>
+        </ul>
+    </nav>
+
+    <div id="banner-header"></div>
 
     <div class="container">
 
         <section id="modificaciones">
-            <h2>🔓 Scene, Modificaciones y Mejoras de Software</h2>
+            <h2>🔓 Scene, modificaciones y mejoras</h2>
             
             <div class="modulo">
                 <h3>¿Tutoriales de YouTube que no funcionan? Te entiendo.</h3>
@@ -150,7 +227,7 @@
                     <li>Servicio rápido, seguro y con garantía de funcionamiento.</li>
                 </ul>
                 <div class="embed-container">
-                    <iframe src="https://www.youtube.com/embed/4bv_O8vtu80" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://youtu.be/KAvujyt1m-A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
 
@@ -164,66 +241,52 @@
                     <li>Yo me encargo de todo el proceso técnico para que tú solo tengas que encender y disfrutar.</li>
                 </ul>
                 <div class="embed-container">
-                    <iframe src="https://www.youtube.com/embed/5pp1cEsD_RY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://youtu.be/2lLYXy7W1Yg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
             
-            <p style="text-align: center; margin-top: 20px;">
+            <p style="text-align: center; margin-top: 30px;">
                 <a href="#contacto" class="btn-profesional">QUIERO MODIFICAR MI CONSOLA</a>
             </p>
         </section>
 
-
         <section id="reparaciones">
-            <h2>🛠️ Reparaciones y Mantenimiento de Hardware</h2>
+            <h2>🛠️ Reparaciones y Mantenimiento</h2>
 
             <div class="modulo">
-                <h3>Mantenimiento Preventivo: Adiós al ruido de avión</h3>
-                <p>¿Tu consola suena demasiado fuerte o se calienta en exceso? Eso es síntoma de que la pasta térmica está seca y hay suciedad acumulada.</p>
-                <ul>
-                    <li>Limpieza interna profunda de ventiladores y disipadores.</li>
-                    <li>Cambio de pasta térmica de alto rendimiento (Arctic MX-4 / Thermal Grizzly).</li>
-                    <li>Cambio de Thermal Pads para evitar sobrecalentamientos futuros.</li>
-                </ul>
+                <h3>Mantenimiento preventivo: Adiós al ruido</h3>
+                <p>Limpieza profunda, cambio de pasta térmica de alta calidad y thermal pads. Tu consola volverá a ser silenciosa.</p>
                 <div class="embed-container">
-                    <iframe src="https://www.youtube.com/embed/TU_VIDEO_LIMPIEZA" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="https://youtu.be/6cg3Af170mY" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
 
-            <p style="text-align: center; margin-top: 20px;">
-                <a href="#contacto" class="btn-profesional">SOLICITAR PRESUPUESTO DE REPARACIÓN</a>
+            <p style="text-align: center; margin-top: 30px;">
+                <a href="#contacto" class="btn-profesional">SOLICITAR PRESUPUESTO</a>
             </p>
         </section>
 
-
         <section id="proyectos">
-            <h2>🎥 Galería de Proyectos (Ejemplos Reales)</h2>
-
-            <div class="modulo ejemplo-consola">
-                <h3>PS3 - Fallos Críticos y Custom Firmware</h3>
-                <p>Máximo nivel de experiencia en la plataforma PS3: Soluciones para YLOD y la instalación/gestión de CFW/HEN.</p>
+            <h2>🎥 Galería de Proyectos</h2>
+            <div class="modulo">
+                <h3>PS3 - El Rey de la Scene</h3>
+                <p>Mira cómo transformamos una PS3 olvidada en la máquina de entretenimiento definitiva.</p>
                 <div class="embed-container">
-                    <iframe src="https://www.youtube.com/embed/AQUI_TU_ID_VIDEO_PS3" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-
-            <div class="modulo ejemplo-consola">
-                <h3>PS4/PS5 - Optimización Térmica</h3>
-                <p>Demostración de limpieza profunda y upgrade de SSD para optimizar la velocidad y eliminar el ruido.</p>
-                <div class="embed-container">
-                    <iframe src="https://www.youtube.com/embed/AQUI_TU_ID_VIDEO_PS4" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="https://youtu.be/VL7Aewsv_d0" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
 
         <section id="contacto">
             <h2>📞 Contacto Profesional</h2>
-            <div class="modulo" style="border-left: 5px solid #333;">
-                <p>Inicia tu consulta, modificación o reparación hoy mismo. Te responderemos en menos de 24 horas.</p>
-                <ul style="font-size: 1.2em;">
-                    <li><strong>Email:</strong> videogamesscz1@gmail.com</li>
-                    <li><strong>WhatsApp:</strong> 666666666</li>
-                    <li><strong>YouTube:</strong> <a href="https://www.youtube.com/@VIDEOGAMESSCZ" style="color: var(--dark-green); font-weight: bold;">Visita VIDEOGAMES SCZ</a></li>
+            <div class="modulo" style="border-left: 6px solid #333;">
+                <p>Trabajemos juntos. Respuesta en menos de 24h.</p>
+                <ul style="font-size: 1.2em; line-height: 2; list-style: none;">
+                    <li>📧 <strong>Email:</strong> videogamesscz1@gmail.com</li>
+                    <li>📱 <strong>WhatsApp:</strong> 666666666</li>
+                    <li>📺 <strong>YouTube:</strong> <a href="https://www.youtube.com/@VIDEOGAMESSCZ" style="color: var(--dark-green); font-weight: bold; text-decoration: none;">@VIDEOGAMESSCZ</a></li>
                 </ul>
             </div>
         </section>
@@ -233,48 +296,46 @@
     <footer>
         <p>&copy; 2025 VIDEOGAMES SCZ | Expertos en Hardware y Scene.</p>
     </footer>
-    
-	 <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Buscamos todos los iframes de video dentro de los contenedores
-            const videos = document.querySelectorAll('.embed-container iframe');
 
-            // Configuración del "Observador"
-            const observerOptions = {
-                root: null, // Usa la ventana del navegador
-                rootMargin: '0px',
-                threshold: 0.5 // El video debe verse al 50% para arrancar
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const videos = document.querySelectorAll('.embed-container iframe');
+            
+            const observerOptions = { 
+                root: null, 
+                rootMargin: '0px', 
+                threshold: 0.5 
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
-                    // Si el video entra en pantalla
                     if (entry.isIntersecting) {
                         const iframe = entry.target;
                         let src = iframe.getAttribute('src');
 
-                        // Verificamos si ya tiene autoplay para no recargarlo
+                        // Verificamos si ya se activó para no recargar
                         if (!src.includes('autoplay=1')) {
-                            // Añadimos los parámetros mágicos: autoplay y mute
-                            // Si la URL ya tiene un '?', usamos '&', si no, usamos '?'
+                            
+                            // Determinamos si usar ? o &
                             const symbol = src.includes('?') ? '&' : '?';
                             
-                            // IMPORTANTE: enablejsapi=1 permite control futuro, mute=1 es OBLIGATORIO para autoplay
-                            iframe.src = src + symbol + "autoplay=1&mute=1&enablejsapi=1";
+                            // AÑADIMOS:
+                            // autoplay=1 (reproducir)
+                            // mute=1 (silencio obligado para autoplay)
+                            // enablejsapi=1 (control api)
+                            // vq=hd1080 (sugerir calidad 1080p)
                             
-                            // Dejamos de observar este video para que no se recargue si subes y bajas
+                            iframe.src = src + symbol + "autoplay=1&mute=1&enablejsapi=1&vq=hd1080";
+                            
                             observer.unobserve(iframe);
                         }
                     }
                 });
             }, observerOptions);
 
-            // Activamos el observador en cada video
-            videos.forEach(video => {
-                observer.observe(video);
-            });
+            videos.forEach(video => { observer.observe(video); });
         });
     </script>
-	 
+
 </body>
 </html>
