@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIDEOGAMES SCZ | Servicios Técnicos Profesionales</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- DEFINICIÓN DE COLORES --- */
+        :root {
+            --accent-green: #7FFF00; /* Verde Neón / Lima brillante */
+            --dark-green: #5d9e3b; /* Verde oscuro */
+            --text-color: #333;
+            --background-color: #ffffff;
+        }
+
+        /* --- ESTILO GENERAL --- */
+        body { 
+            font-family: Arial, Helvetica, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--background-color); 
+            color: var(--text-color); 
+            text-align: center;
+        }
+
+        /* --- BANNER HEADER --- */
+        #banner-header {
+            width: 100%;
+            height: 250px; 
+            background-color: var(--dark-green); 
+            background-image: url('banner.jpg'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        #banner-header h1 {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.0);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 3em;
+            font-family: 'Bangers', cursive; 
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .container { 
+            width: 90%; 
+            max-width: 1000px;
+            margin: 30px auto; 
+            padding: 30px; 
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05); 
+            text-align: left;
+        }
+        
+        /* --- TÍTULOS DE SECCIÓN --- */
+        h2 { 
+            color: var(--dark-green); 
+            border-bottom: 2px solid #ddd; 
+            padding-bottom: 12px; 
+            margin-top: 50px; /* Un poco más de espacio entre secciones */
+            font-size: 2.5em; 
+            font-weight: normal; 
+            font-family: 'Bangers', cursive;
+            letter-spacing: 1px;
+        }
+        
+        /* --- MÓDULOS DE SERVICIO Y VIDEO --- */
+        .modulo { 
+            margin-bottom: 35px; 
+            padding: 20px; 
+            border: 1px solid #eee; 
+            background-color: #fcfcfc; 
+            border-radius: 8px;
+            border-left: 5px solid var(--accent-green); /* Borde decorativo lateral */
+        }
+        .modulo h3 {
+            color: var(--text-color);
+            font-size: 1.6em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-family: 'Bangers', cursive;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- ESTILO DE BOTÓN --- */
+        .btn-profesional {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--accent-green); 
+            color: var(--text-color); 
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: normal;
+            font-size: 1.5em; 
+            transition: background-color 0.3s;
+            font-family: 'Bangers', cursive;
+            box-shadow: 3px 3px 0 #333; 
+        }
+        .btn-profesional:hover {
+            background-color: #90EE90; 
+            box-shadow: 1px 1px 0 #333;
+        }
+
+        /* Estilo para videos incrustados */
+        .embed-container { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden; 
+            max-width: 100%; 
+            background: #000; 
+            margin-top: 20px; 
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .embed-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        footer { text-align: center; padding: 20px 0; background-color: #333; color: #ccc; margin-top: 60px; }
+        footer a { color: var(--accent-green); text-decoration: none; }
+        ul { list-style: circle; padding-left: 20px; line-height: 1.6; }
+        ul li { margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+
+    <div id="banner-header">
+        <h1></h1> 
+    </div>
+
+    <div class="container">
+
+        <section id="modificaciones">
+            <h2>🔓 Scene, Modificaciones y Mejoras de Software</h2>
+            
+            <div class="modulo">
+                <h3>¿Tutoriales de YouTube que no funcionan? Te entiendo.</h3>
+                <p>Después de ver veinte tutoriales en internet y no conseguir actualizar tu consola, es normal pensar: "ahí lo dejo, esto no es para mí".</p>
+                <ul>
+                    <li>No tires la toalla ni arriesgues tu equipo.</li>
+                    <li>Deja la parte técnica en manos expertas y recupera el control de tu consola sin riesgos.</li>
+                    <li>Servicio rápido, seguro y con garantía de funcionamiento.</li>
+                </ul>
+                <div class="embed-container">
+                    <iframe src="https://www.youtube.com/embed/4bv_O8vtu80" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="modulo">
+                <h3>Desbloquea el verdadero potencial (HEN, CFW, Emuladores)</h3>
+                <p>Tu consola puede hacer mucho más de lo que crees de fábrica. ¿Quieres jugar a tus copias de seguridad, revivir clásicos con emuladores o personalizar la interfaz?</p>
+                <p>Sabemos que el proceso puede ser intimidante. Un archivo incorrecto puede dejar tu equipo inservible (brick).</p>
+                <ul>
+                    <li>Instalación de Custom Firmware (CFW) o HEN según modelo.</li>
+                    <li>Configuración de tiendas y gestores de archivos (MultiMan, WebMan).</li>
+                    <li>Yo me encargo de todo el proceso técnico para que tú solo tengas que encender y disfrutar.</li>
+                </ul>
+                <div class="embed-container">
+                    <iframe src="https://www.youtube.com/embed/5pp1cEsD_RY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 20px;">
+                <a href="#contacto" class="btn-profesional">QUIERO MODIFICAR MI CONSOLA</a>
+            </p>
+        </section>
+
+
+        <section id="reparaciones">
+            <h2>🛠️ Reparaciones y Mantenimiento de Hardware</h2>
+
+            <div class="modulo">
+                <h3>Mantenimiento Preventivo: Adiós al ruido de avión</h3>
+                <p>¿Tu consola suena demasiado fuerte o se calienta en exceso? Eso es síntoma de que la pasta térmica está seca y hay suciedad acumulada.</p>
+                <ul>
+                    <li>Limpieza interna profunda de ventiladores y disipadores.</li>
+                    <li>Cambio de pasta térmica de alto rendimiento (Arctic MX-4 / Thermal Grizzly).</li>
+                    <li>Cambio de Thermal Pads para evitar sobrecalentamientos futuros.</li>
+                </ul>
+                <div class="embed-container">
+                    <iframe src="https://www.youtube.com/embed/TU_VIDEO_LIMPIEZA" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 20px;">
+                <a href="#contacto" class="btn-profesional">SOLICITAR PRESUPUESTO DE REPARACIÓN</a>
+            </p>
+        </section>
+
+
+        <section id="proyectos">
+            <h2>🎥 Galería de Proyectos (Ejemplos Reales)</h2>
+
+            <div class="modulo ejemplo-consola">
+                <h3>PS3 - Fallos Críticos y Custom Firmware</h3>
+                <p>Máximo nivel de experiencia en la plataforma PS3: Soluciones para YLOD y la instalación/gestión de CFW/HEN.</p>
+                <div class="embed-container">
+                    <iframe src="https://www.youtube.com/embed/AQUI_TU_ID_VIDEO_PS3" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="modulo ejemplo-consola">
+                <h3>PS4/PS5 - Optimización Térmica</h3>
+                <p>Demostración de limpieza profunda y upgrade de SSD para optimizar la velocidad y eliminar el ruido.</p>
+                <div class="embed-container">
+                    <iframe src="https://www.youtube.com/embed/AQUI_TU_ID_VIDEO_PS4" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2>📞 Contacto Profesional</h2>
+            <div class="modulo" style="border-left: 5px solid #333;">
+                <p>Inicia tu consulta, modificación o reparación hoy mismo. Te responderemos en menos de 24 horas.</p>
+                <ul style="font-size: 1.2em;">
+                    <li><strong>Email:</strong> videogamesscz1@gmail.com</li>
+                    <li><strong>WhatsApp:</strong> 666666666</li>
+                    <li><strong>YouTube:</strong> <a href="https://www.youtube.com/@VIDEOGAMESSCZ" style="color: var(--dark-green); font-weight: bold;">Visita VIDEOGAMES SCZ</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 VIDEOGAMES SCZ | Expertos en Hardware y Scene.</p>
+    </footer>
+    
+	 <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Buscamos todos los iframes de video dentro de los contenedores
+            const videos = document.querySelectorAll('.embed-container iframe');
+
+            // Configuración del "Observador"
+            const observerOptions = {
+                root: null, // Usa la ventana del navegador
+                rootMargin: '0px',
+                threshold: 0.5 // El video debe verse al 50% para arrancar
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    // Si el video entra en pantalla
+                    if (entry.isIntersecting) {
+                        const iframe = entry.target;
+                        let src = iframe.getAttribute('src');
+
+                        // Verificamos si ya tiene autoplay para no recargarlo
+                        if (!src.includes('autoplay=1')) {
+                            // Añadimos los parámetros mágicos: autoplay y mute
+                            // Si la URL ya tiene un '?', usamos '&', si no, usamos '?'
+                            const symbol = src.includes('?') ? '&' : '?';
+                            
+                            // IMPORTANTE: enablejsapi=1 permite control futuro, mute=1 es OBLIGATORIO para autoplay
+                            iframe.src = src + symbol + "autoplay=1&mute=1&enablejsapi=1";
+                            
+                            // Dejamos de observar este video para que no se recargue si subes y bajas
+                            observer.unobserve(iframe);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Activamos el observador en cada video
+            videos.forEach(video => {
+                observer.observe(video);
+            });
+        });
+    </script>
+	 
+</body>
+</html>
